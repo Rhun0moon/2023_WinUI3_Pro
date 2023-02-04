@@ -9,8 +9,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40" />
+      <RowDefinition Height="60" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    
+    <Grid Grid.Row="0" Background="Gainsboro" CornerRadius="10">
+      <MenuBar>
+        <MenuBarItem Title="File">
+          <MenuFlyoutItem Text="Save" Click="MenuFlyoutItem_Click" Icon="Save">
+            <MenuFlyoutItem.KeyboardAccelerators>
+              <KeyboardAccelerator Modifiers="Control" Key="S"/>
+            </MenuFlyoutItem.KeyboardAccelerators>
+          </MenuFlyoutItem>
+          
+          <MenuFlyoutItem Text="Open" Click="MenuFlyoutItem_Open" Icon="Page">
+            <MenuFlyoutItem.KeyboardAccelerators>
+              <KeyboardAccelerator Modifiers="Control" Key="O"/>
+            </MenuFlyoutItem.KeyboardAccelerators>
+          </MenuFlyoutItem>
+          
+          <MenuFlyoutSubItem Text="New" Icon="Add">
+            <MenuFlyoutItem Text="Plain Text Document"/>
+            <MenuFlyoutItem Text="Rich Text Document"/>
+            <MenuFlyoutItem Text="Other Formats..."/>
+          </MenuFlyoutSubItem>
+          <MenuFlyoutSeparator/>
+          
+          <MenuFlyoutItem Text="Exit" Click="MenuFlyoutItem_Exit" Icon="Cancel">
+            <MenuFlyoutItem.KeyboardAccelerators>
+              <KeyboardAccelerator Modifiers="Control" Key="E"/>
+            </MenuFlyoutItem.KeyboardAccelerators>
+          </MenuFlyoutItem>
+        </MenuBarItem>
+        
+        <MenuBarItem Title="VIew">
+          <MenuFlyoutItem Text="Oputput" Click="MenuFlyoutItem_Oputput"/>
+          <MenuFlyoutSeparator/>
+          <RadioMenuFlyoutItem Text="Small icons" GroupName="SizeGroup" Click="MenuFlyoutItem_Small"/>
+          <RadioMenuFlyoutItem Text="Medium icons" GroupName="SizeGroup" Click="MenuFlyoutItem_Medium"/>
+          <RadioMenuFlyoutItem Text="Large icons" GroupName="SizeGroup" Click="MenuFlyoutItem_Large"/>
+        </MenuBarItem>
+      </MenuBar>
+    </Grid>
+    <Grid Grid.Row="1" Padding="15">
+      <TextBlock x:Name="TBlock">You Clicked :</TextBlock>
+    </Grid>
+  </Grid>
 </Window>
